@@ -1,3 +1,4 @@
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
@@ -14,6 +15,11 @@ public class EnterprizePageTest {
     @BeforeAll
     static void beforeAll() {
         Configuration.baseUrl = "https://github.com/";
+    }
+
+    @AfterEach
+    void afterEach() {
+        closeWebDriver();
     }
 
     @Test

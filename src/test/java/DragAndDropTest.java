@@ -1,4 +1,5 @@
 import com.codeborne.selenide.Configuration;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
@@ -12,6 +13,11 @@ public class DragAndDropTest {
     static void beforeAll() {
         Configuration.baseUrl = "https://the-internet.herokuapp.com/drag_and_drop";
         Configuration.browserSize = "1920x1080";
+    }
+
+    @AfterEach
+    void afterEach() {
+        closeWebDriver();
     }
 
     @Test
