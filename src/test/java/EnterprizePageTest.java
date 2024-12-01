@@ -13,7 +13,6 @@ public class EnterprizePageTest {
 
     @BeforeAll
     static void beforeAll() {
-
         Configuration.baseUrl = "https://github.com/";
     }
 
