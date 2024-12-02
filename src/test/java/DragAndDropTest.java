@@ -1,6 +1,7 @@
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Condition.text;
@@ -15,6 +16,13 @@ public class DragAndDropTest {
         Configuration.browserSize = "1920x1080";
     }
 
+    @BeforeEach
+    void beforeEach() {
+        open("");
+        $("#column-a header").shouldHave(text("A"));
+        $("#column-b header").shouldHave(text("B"));
+    }
+
     @AfterEach
     void afterEach() {
         closeWebDriver();
@@ -22,8 +30,6 @@ public class DragAndDropTest {
 
     @Test
     void moveElementByOffsetTest() {
-
-        open("");
 
         actions().moveToElement($("#column-a")).clickAndHold().
                 moveByOffset(225,0).release().perform();
@@ -35,8 +41,6 @@ public class DragAndDropTest {
     @Test
     void moveElementToAnotherElementTest() {
 
-        open("");
-
         actions().moveToElement($("#column-a")).clickAndHold().
                 moveToElement($("#column-b")).release().perform();
 
@@ -46,8 +50,6 @@ public class DragAndDropTest {
 
     @Test
     void moveWithDragAndDropWithoutActionsTest() {
-
-        open("");
 
         $("#column-a").dragAndDrop(to("#column-b"));
 
