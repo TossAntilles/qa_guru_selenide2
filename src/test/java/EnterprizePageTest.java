@@ -51,8 +51,8 @@ public class EnterprizePageTest {
 
         //navigate through menu
         $(".Button-content").click();
-        $(byText("Enterprise")).click();
-        $(byText("Enterprise platform")).click();
+        $(".HeaderMenu").$(byText("Enterprise")).click();
+        $(".HeaderMenu").$(byText("Enterprise platform")).click();
 
         //check URL and header
         webdriver().shouldHave(url("https://github.com/enterprise"));
